@@ -1,16 +1,13 @@
 # Terraform OpenStack Security Group Module
 ## Rewritten for Terraform 1.8+
 
-[![Terraform module](https://img.shields.io/badge/dynamic/json.svg?url=https://registry.terraform.io/v1/modules/haxorof/security-group/openstack&label=haxorof/security-group/openstack&query=$.version&color=blue)](https://registry.terraform.io/modules/haxorof/security-group/openstack)
-![Module downloads](https://img.shields.io/badge/dynamic/json.svg?url=https://registry.terraform.io/v1/modules/haxorof/security-group/openstack&label=downloads&query=$.downloads&color=green)
-
-Terraform module which creates security groups on OpenStack.
+Terraform module, which creates security groups on OpenStack.
 
 ## Features
 
-This module aims to implement many combinations of arguments supported by OpenStack and latest stable version of Terraform:
+This module aims to implement many combinations of arguments supported by OpenStack and the latest stable version of Terraform:
 
-* Full control of security group rules if need.
+* Full control of security group rules if needed.
 * Ingress and egress rule blocks for convenience.
 * Support to separate IPv4 and IPv6 rules in different lists.
 
@@ -24,7 +21,7 @@ There are several ways to use this module but here are two examples below:
 
 ### Ingress/Egress rule blocks
 
-`ingress_rules` and `egress_rules` blocks lets you define and separate these rules in different lists which might be useful in some situations. Values for the defined keys are limited what is described in the documentation for [OpenStack Neutron Security Group Rule v2](https://www.terraform.io/docs/providers/openstack/r/networking_secgroup_rule_v2.html):
+The `ingress_rules` and `egress_rules` blocks let you define and separate these rules in different lists, which might be useful in some situations. Values for the defined keys are limited to what is described in the documentation for [OpenStack Neutron Security Group Rule v2](https://www.terraform.io/docs/providers/openstack/r/networking_secgroup_rule_v2.html):
 
 | Key | Description | Example |
 | --- | --- | ---|
@@ -34,7 +31,7 @@ There are several ways to use this module but here are two examples below:
 | port_range_max | The higher part of the allowed port range. | `8081` |
 | port | One port instead of range. Overrides `port_range_min`and `port_range_max`. | `80` |
 | remote_ip_prefix | The remote CIDR. | `0.0.0.0/0` |
-| remote_group_id | The remote group id. If same group ID shall be referenced then write `@self` | `@self` |
+| remote_group_id | The remote group id. If the same group ID shall be referenced, then write `@self` | `@self` |
 
 ```hcl
 module "ingress_egress_rules_sg" {
@@ -59,7 +56,7 @@ module "ingress_egress_rules_sg" {
 
 ### Rule blocks
 
-`rules` block is the most raw form but also gives you the most flexibility. Values for the defined keys are limited what is described in the documentation for [OpenStack Neutron Security Group Rule v2](https://www.terraform.io/docs/providers/openstack/r/networking_secgroup_rule_v2.html):
+`rules` block is the most raw form but also gives you the most flexibility. Values for the defined keys are limited to what is described in the documentation for [OpenStack Neutron Security Group Rule v2](https://www.terraform.io/docs/providers/openstack/r/networking_secgroup_rule_v2.html):
 
 | Key | Description | Example |
 | --- | --- | ---|
@@ -70,7 +67,7 @@ module "ingress_egress_rules_sg" {
 | port_range_max | The higher part of the allowed port range. | `8081` |
 | port | One port instead of range. Overrides `port_range_min`and `port_range_max`. | `80` |
 | remote_ip_prefix | The remote CIDR. | `0.0.0.0/0` |
-| remote_group_id | The remote group id. If same group ID shall be referenced then write `@self` | `@self` |
+| remote_group_id | The remote group id. If the same group ID shall be referenced, then write `@self` | `@self` |
 
 ```hcl
 module "raw_rules_sg" {
