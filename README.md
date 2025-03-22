@@ -96,3 +96,6 @@ module "raw_rules_sg" {
 ## License
 
 This is an open source project under the [MIT](https://github.com/haxorof/terraform-openstack-security-group/blob/master/LICENSE) license.
+
+![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
+[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
