@@ -75,7 +75,7 @@ locals {
 }
 
 resource "openstack_networking_secgroup_rule_v2" "rules" {
-  for_each          = var.create ? local.rules : 0
+  for_each          = var.create ? local.rules : {}
   security_group_id = local.this_sg_id
   direction         = lookup(each.value, "direction", null)
 
